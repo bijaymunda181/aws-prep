@@ -41,3 +41,9 @@ The /number (prefix) tells how many bits are fixed for the network part.
 - /28 → 16 IPs
 
 CIDR is used in VPCs, subnets, routing tables, security groups, etc.
+
+## 5. What is a subnet?
+A subnet is a smaller network segment inside a VPC.
+
+## 6. What is the difference between a public and private subnet?
+A subnet whose route table has a route to the Internet Gateway (IGW) is called a public subnet.”

@@ -1,0 +1,2 @@
+## 1. What is VPC?
+A vpc (virtual private cloud) is logical isolated section of a public cloud where we can deploy resources such as virtual machine, database and other services. It provide a private and secure network enviroment for cloud resources, similarly to an on-premices data center but hosted in public cloud.   

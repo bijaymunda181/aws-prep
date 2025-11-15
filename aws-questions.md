@@ -46,4 +46,14 @@ CIDR is used in VPCs, subnets, routing tables, security groups, etc.
 A subnet is a smaller network segment inside a VPC.
 
 ## 6. What is the difference between a public and private subnet?
-A subnet whose route table has a route to the Internet Gateway (IGW) is called a public subnet.”
+A subnet whose route table has a route to the Internet Gateway (IGW) is called a public subnet.
+
+A subnet whose route table does not have a route to the Internet Gateway (IGW) is called a private subnet.
+
+| Feature           | Public Subnet   | Private Subnet         |
+| ----------------- | --------------- | ---------------------- |
+| Internet access   | Direct          | No direct access       |
+| Route to IGW      | Yes             | No                     |
+| Common resources  | Web servers     | Databases, app servers |
+| Outbound internet | Direct          | Via **NAT Gateway**    |
+| Security          | Less restricted | More secure            |

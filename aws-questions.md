@@ -60,3 +60,39 @@ A subnet whose route table does not have a route to the Internet Gateway (IGW) i
 
 ## 7. What is an Internet Gateway? 
 An Internet Gateway allows instances in a public subnet to communicate with the internet.
+
+## 8. How does a NAT Gateway work?
+A NAT Gateway (Network Address Translation Gateway) allows instances in a private subnet to access the internet
+
+**How it works step-by-step:**
+
+1. **Instance in private subnet sends a request**
+
+Example: An EC2 instance in a private subnet wants to download updates from the internet.
+
+2. **Traffic goes to the NAT Gateway**
+
+The private subnet’s route table has a route:
+
+0.0.0.0/0 → NAT Gateway
+
+
+3. **NAT Gateway replaces the private IP with its own public IP**
+
+This hides the private instance’s IP by performing address translation.
+
+4. **Traffic goes out to the Internet Gateway (IGW)**
+
+The NAT Gateway is in a public subnet, so it sends the request through the IGW.
+
+5. **Response returns to NAT Gateway**
+
+The external server responds to the NAT Gateway’s public IP.
+
+6. **NAT Gateway translates the response back**
+
+It maps the response to the private IP of the instance.
+
+7. **Response is delivered to the private instance**
+
+The private instance gets the data, but it was never exposed to the internet.

@@ -8,7 +8,7 @@ To create a vpc minimum 4 resources are required :
 3. Internet Gateway (IGW) (For public subnet): Allow instances in public subnets to communicate with the internet. Attached to vpc.
 4. Route Table: Define how taffic is routed withen or outside the vpc.
 
-## 3. ✅ Perfect Answer:
+## 3.Why do we need a VPC in AWS?
 We need a VPC in AWS to control our network environment.
 
 It helps us manage IP ranges, subnets, routing, security, and access to our resources.
@@ -16,3 +16,28 @@ It helps us manage IP ranges, subnets, routing, security, and access to our reso
 Without a VPC, we cannot securely deploy EC2, databases, or other services.
 
 VPC gives isolation, security, and full control like an on-prem data center.
+
+## 4. What is CIDR? What CIDR did you use in your project?
+CIDR (Classless Inter-Domain Routing) is a method of writing IP address ranges.
+
+10.0.0.0/16
+
+192.168.1.0/24
+
+172.31.0.0/16
+
+The /number (prefix) tells how many bits are fixed for the network part.
+
+**In simple words:**
+
+**CIDR defines how big your network is and how many IPs you get.**
+
+**Example:**
+
+- /16 → 65,536 IPs
+
+- /24 → 256 IPs
+
+- /28 → 16 IPs
+
+CIDR is used in VPCs, subnets, routing tables, security groups, etc.

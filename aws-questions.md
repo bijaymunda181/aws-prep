@@ -10,6 +10,9 @@ To create a vpc minimum 4 resources are required :
 
 ## 3. ✅ Perfect Answer:
 We need a VPC in AWS to control our network environment.
+
 It helps us manage IP ranges, subnets, routing, security, and access to our resources.
+
 Without a VPC, we cannot securely deploy EC2, databases, or other services.
+
 VPC gives isolation, security, and full control like an on-prem data center.

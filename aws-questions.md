@@ -7,3 +7,9 @@ To create a vpc minimum 4 resources are required :
 2. subnet: Divide the vpc in smaller seagment called subnet.
 3. Internet Gateway (IGW) (For public subnet): Allow instances in public subnets to communicate with the internet. Attached to vpc.
 4. Route Table: Define how taffic is routed withen or outside the vpc.
+
+## 3. ✅ Perfect Answer:
+We need a VPC in AWS to control our network environment.
+It helps us manage IP ranges, subnets, routing, security, and access to our resources.
+Without a VPC, we cannot securely deploy EC2, databases, or other services.
+VPC gives isolation, security, and full control like an on-prem data center.

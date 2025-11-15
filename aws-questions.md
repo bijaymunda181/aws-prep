@@ -57,3 +57,6 @@ A subnet whose route table does not have a route to the Internet Gateway (IGW) i
 | Common resources  | Web servers     | Databases, app servers |
 | Outbound internet | Direct          | Via **NAT Gateway**    |
 | Security          | Less restricted | More secure            |
+
+## 7. What is an Internet Gateway? 
+An Internet Gateway allows instances in a public subnet to communicate with the internet.

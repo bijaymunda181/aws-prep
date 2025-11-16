@@ -141,4 +141,7 @@ Private EC2s needing updates or external API calls without being exposed to the 
 ## 10. What is a Route Table?
 Route Table define how traffic will route within or outside the vpc.
 
+## 11. What Is the Default VPC?
+A preconfigured VPC that AWS creates for you in every AWS region so you can immediately launch EC2 instances that have internet access without creating any networking components.
+
 

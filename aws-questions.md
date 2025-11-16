@@ -96,3 +96,46 @@ It maps the response to the private IP of the instance.
 7. **Response is delivered to the private instance**
 
 The private instance gets the data, but it was never exposed to the internet.
+
+## 9. What is the difference between IGW and NAT Gateway?
+🚪 Internet Gateway (IGW)
+
+Purpose: Allows instances with public IPs to access the internet and allows the internet to reach them.
+
+Key Points
+
+- Attach an IGW to your VPC to enable internet connectivity.
+
+- Works with public subnets.
+
+- Allows bi-directional traffic (outbound + inbound).
+
+- Instances must have:
+
+- A public IPv4 address (Elastic IP or auto-assigned), and
+
+- A route to the IGW (0.0.0.0/0 → igw-xxxx).
+
+**Use Case**
+
+- Hosting public web servers, ALBs, bastion hosts, etc.
+
+🔄 NAT Gateway
+
+Purpose: Allows instances in private subnets to access the internet outbound only while preventing the internet from initiating inbound connections to them.
+
+Key Points
+
+- A NAT Gateway is placed in a public subnet.
+
+- Private subnets route internet-bound traffic to the NAT Gateway (0.0.0.0/0 → nat-xxxx).
+
+- Supports only outbound connections.
+
+- Instances remain private (no public IP needed).
+
+**Use Case**
+
+Private EC2s needing updates or external API calls without being exposed to the internet.
+
+

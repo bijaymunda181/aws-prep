@@ -138,4 +138,7 @@ Key Points
 
 Private EC2s needing updates or external API calls without being exposed to the internet.
 
+## 10. What is a Route Table?
+Route Table define how traffic will route within or outside the vpc.
+
 

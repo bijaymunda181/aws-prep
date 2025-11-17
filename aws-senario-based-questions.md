@@ -40,3 +40,19 @@ So if SSH doesn’t work, the issue will be one of these (most likely):
 | Network  | Public IP, Security Groups, NACLs, routing                |
 | Key Pair | Wrong key, missing private key, wrong permissions         |
 | OS       | Wrong username, SSH daemon is down, firewall blocking SSH |
+
+## 3. Your private subnet instance needs to download updates. What will you use? 
+If an EC2 instance is in a private subnet and needs to reach the internet to download updates or packages, the correct solution is NAT Gateway (or NAT Instance) in a public subnet.
+
+Instances in a private subnet do not have a route to the Internet Gateway (IGW), so they cannot access external repositories for updates.
+
+A NAT Gateway provides:
+
+- Outbound Internet access from private subnets
+
+- No inbound Internet access (remains secure)
+
+**So the traffic flow is:**
+
+Private subnet instance → NAT Gateway → Internet Gateway → Internet
+

@@ -1,0 +1,1 @@
+## 1. You created an EC2 instance but cannot connect via SSH. What will you check?

@@ -56,3 +56,37 @@ A NAT Gateway provides:
 
 Private subnet instance → NAT Gateway → Internet Gateway → Internet
 
+## 4. EC2 in private subnet wants to access S3 without Internet. What should you configure?
+To allow an EC2 instance in a private subnet to access Amazon S3 without using the Internet, you should configure:
+
+A VPC Gateway Endpoint for S3
+
+🔍 **Why this is needed**
+
+Instances in private subnets cannot reach S3 by default because:
+
+- S3 is a public AWS service
+
+- Private subnets do not route to the Internet Gateway
+
+A **VPC Gateway Endpoint for S3** creates a private connection between your VPC and S3 using the AWS backbone — no Internet, no NAT Gateway required.
+
+🧱 Required configuration
+
+1. Create a Gateway VPC Endpoint for S3
+
+2. Attach it to the route table of the private subnet
+
+3. (Optional but recommended) Add an S3 bucket policy to allow access only via the VPC endpoint
+
+After adding the endpoint, the private subnet route table gets an entry:
+
+pl-xxxxxxxxxx (S3 VPC endpoint) → prefix list for S3
+
+🆚 Why not NAT Gateway?
+
+| Option               | Internet Required? | Use Case                                     |
+| -------------------- | ------------------ | -------------------------------------------- |
+| NAT Gateway          | Yes                | Internet access for OS updates, app installs |
+| VPC Gateway Endpoint | No                 | Private access to S3 and DynamoDB only       |
+

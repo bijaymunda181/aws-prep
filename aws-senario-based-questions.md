@@ -91,4 +91,4 @@ pl-xxxxxxxxxx (S3 VPC endpoint) → prefix list for S3
 | VPC Gateway Endpoint | No                 | Private access to S3 and DynamoDB only       |
 
 ## 2. Your private subnet instance needs to download updates. What will you use?
-
+I will use NAT Gateway because NAT Gateway allow instance in a private to communicate with the internet.

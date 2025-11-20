@@ -90,5 +90,41 @@ pl-xxxxxxxxxx (S3 VPC endpoint) → prefix list for S3
 | NAT Gateway          | Yes                | Internet access for OS updates, app installs |
 | VPC Gateway Endpoint | No                 | Private access to S3 and DynamoDB only       |
 
-## 2. Your private subnet instance needs to download updates. What will you use?
-I will use NAT Gateway because NAT Gateway allow instance in a private to communicate with the internet.
+## 5. Two EC2 instances in different subnets cannot ping each other. What will you check?
+1. Security Group rules
+
+Ping uses **ICMP**, so allow:
+
+- Inbound: ICMP (Echo Request)
+
+- Outbound: ICMP (Echo Reply)
+
+| Direction | Type     | Source                                  |
+| --------- | -------- | --------------------------------------- |
+| Inbound   | All ICMP | Security Group of other EC2             |
+| Outbound  | All ICMP | Anywhere or security group of other EC2 |
+
+2. **Network ACL (NACL) rules**
+
+NACL must allow ICMP for both inbound and outbound:
+
+| Rule     | Protocol | Port | Allow? |
+| -------- | -------- | ---- | ------ |
+| Inbound  | ICMP     | All  | ALLOW  |
+| Outbound | ICMP     | All  | ALLOW  |
+
+3. Subnet Routing
+
+Check status based on whether both subnets are in same VPC or different VPC:
+
+| Scenario      | Routing requirement                                                               |
+| ------------- | --------------------------------------------------------------------------------- |
+| Same VPC      | No special route needed (local route exists automatically)                        |
+| Different VPC | Must have **VPC peering** or **Transit Gateway**, with proper route table entries |
+
+4. Source/Destination Check disabled? (only if NAT reverse traffic)
+
+Normally source/destination check must be enabled unless the instance acts as NAT or router.
+
+For normal EC2 → leave ON (default).
+

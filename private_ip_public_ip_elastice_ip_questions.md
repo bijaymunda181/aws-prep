@@ -37,3 +37,13 @@ This allows fast and secure traffic within the VPC.
 Traffic over private IP (inside VPC) is free or cheaper compared to internet traffic.
 
 Private IPs keep internal traffic secure and isolated, while allowing AWS resources to communicate efficiently without internet.
+
+## 3. Which subnets get private IPs — public or private?
+Both public and private subnets get private IPs.
+
+Every EC2 instance launched in a VPC always receives a private IP, no matter which subnet it is in.
+
+## 4. Can private IPs communicate with the internet?
+A private IP cannot communicate with the internet directly, but it can access the internet through a NAT device.
+
+## 5. 

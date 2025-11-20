@@ -1,3 +1,5 @@
+## **Private IP — Interview Questions**
+
 ## 1. What is a private IP address?
 Private ip address are not reachable over the internet and can be used for communication between the instances in you vpc.
 
@@ -100,3 +102,10 @@ To change the primary private IP:
 
 Secondary private IPs can be added anytime and do not require instance stop.
 
+## 8. What is primary vs secondary private IP?
+The primary private IP is the default, mandatory IP assigned to an EC2 instance through its ENI and is used for default outbound communication. Secondary private IPs are optional extra IPs that can be manually attached to the same ENI and can be added or removed without stopping the instance.
+
+## 9. When does AWS assign a private IP?
+AWS assigns a private IP to an EC2 instance automatically at launch time.
+
+## 10. 

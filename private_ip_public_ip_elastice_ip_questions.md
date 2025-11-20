@@ -60,3 +60,43 @@ Private IPs alone cannot do it — there must be a connection path.
 | **AWS Site-to-Site VPN**             | ✔ Yes (via on-prem or another VPC)          |
 | **Direct Connect**                   | ✔ Yes (if routed properly)                  |
 | **PrivateLink (Interface Endpoint)** | ✔ Yes (but one-direction: client → service) |
+
+
+## 6. Can two EC2 instances in the same VPC communicate using private IP?
+Yes — two EC2 instances in the same VPC can communicate using their private IPs.
+
+In fact, they always communicate using private IPs inside the VPC, even if they also have public IPs.
+
+## 7. Can you change the private IP of an EC2 instance?
+Yes — you can change the private IP of an EC2 instance, but with some conditions.
+
+For Primary Private IP (the main IP)
+
+| Case                                | Allowed?                |
+| ----------------------------------- | ----------------------- |
+| **Stop the instance and change IP** | ✔ Yes                   |
+| **Change while running**            | ❌ Not allowed           |
+| **Detach ENI and attach a new ENI** | ✔ Changes IP indirectly |
+
+
+To change the primary private IP:
+
+1. Stop the EC2 instance
+
+2. Go to Network Interfaces (ENI)
+
+3. Choose the ENI → Edit primary private IP
+
+4. Assign a new IP from the subnet range
+
+5. Start the instance again
+
+**For Secondary Private IPs**
+
+| Action                     | Allowed?        |
+| -------------------------- | --------------- |
+| Add / Remove while running | ✔ Yes           |
+| Move to another instance   | ✔ Yes (via ENI) |
+
+Secondary private IPs can be added anytime and do not require instance stop.
+

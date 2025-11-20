@@ -46,4 +46,17 @@ Every EC2 instance launched in a VPC always receives a private IP, no matter whi
 ## 4. Can private IPs communicate with the internet?
 A private IP cannot communicate with the internet directly, but it can access the internet through a NAT device.
 
-## 5. 
+## 5. Can private IPs communicate between different VPCs?
+Yes — private IPs can communicate between different VPCs, but only if the VPCs are connected using a networking method.
+
+Private IPs alone cannot do it — there must be a connection path.
+
+🔗 Ways for private IPs to communicate across VPCs
+
+| Connectivity Method                  | Allows private IP to communicate?           |
+| ------------------------------------ | ------------------------------------------- |
+| **VPC Peering**                      | ✔ Yes                                       |
+| **Transit Gateway**                  | ✔ Yes                                       |
+| **AWS Site-to-Site VPN**             | ✔ Yes (via on-prem or another VPC)          |
+| **Direct Connect**                   | ✔ Yes (if routed properly)                  |
+| **PrivateLink (Interface Endpoint)** | ✔ Yes (but one-direction: client → service) |

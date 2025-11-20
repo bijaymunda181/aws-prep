@@ -144,4 +144,5 @@ Route Table define how traffic will route within or outside the vpc.
 ## 11. What Is the Default VPC?
 A preconfigured VPC that AWS creates for you in every AWS region so you can immediately launch EC2 instances that have internet access without creating any networking components.
 
-
+## 12.Where are VPC Flow Logs stored?
+VPC Flow Logs are stored in Amazon CloudWatch Logs, Amazon S3, or Amazon Kinesis Firehose depending on the destination you choose.

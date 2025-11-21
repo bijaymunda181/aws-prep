@@ -17,3 +17,10 @@ Yes, no overlapping CIDR blocks are allowed.
 1. Route tables in both VPCs
 
 2. Security groups to allow traffic
+
+## 7. How do you test VPC peering?
+- Ping private IP
+
+- SSH using private IP
+
+- Curl HTTP/HTTPS
